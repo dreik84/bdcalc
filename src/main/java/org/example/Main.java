@@ -13,12 +13,22 @@ public class Main {
 
         switch (operator) {
             case "+":
-                System.out.print("Enter the augend ( + - * / ): ");
+                System.out.print("Enter the augend: ");
                 String augend = getString();
-                System.out.print("Enter the addend ( + - * / ): ");
+                System.out.print("Enter the addend: ");
                 String addend = getString();
                 BigDecimal sum = Calculator.addition(augend, addend);
-                System.out.println("The sum is: " + sum);
+                showBinaryString(augend, addend, operator, sum);
+                System.out.println("The sum is: " + sum.toPlainString());
+                break;
+            case "-":
+                System.out.print("Enter the minuend: ");
+                String minuend = getString();
+                System.out.print("Enter the subtrahend: ");
+                String subtrahend = getString();
+                BigDecimal difference = Calculator.subtraction(minuend, subtrahend);
+                showBinaryString(minuend, subtrahend, operator, difference);
+                System.out.println("The difference is: " + difference.toPlainString());
                 break;
             default:
                 System.out.println("Invalid operator");
@@ -29,5 +39,14 @@ public class Main {
         InputStreamReader isr = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(isr);
         return br.readLine();
+    }
+
+    private static void showBinaryString(String term1, String term2, String operator, BigDecimal result) {
+
+        System.out.printf("%s\n%s\n%s\n=\n%s\n",
+                Integer.toBinaryString(Integer.parseInt(term1)),
+                operator,
+                Integer.toBinaryString(Integer.parseInt(term2)),
+                Integer.toBinaryString(result.intValue()));
     }
 }
