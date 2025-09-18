@@ -18,7 +18,7 @@ public class Main {
                 System.out.print("Enter the addend: ");
                 String addend = getString();
                 BigDecimal sum = Calculator.addition(augend, addend);
-                showBinaryString(augend, addend, operator, sum);
+//                showBinaryString(augend, addend, operator, sum);
                 System.out.println("The sum is: " + sum.toPlainString());
                 break;
             case "-":
@@ -27,8 +27,17 @@ public class Main {
                 System.out.print("Enter the subtrahend: ");
                 String subtrahend = getString();
                 BigDecimal difference = Calculator.subtraction(minuend, subtrahend);
-                showBinaryString(minuend, subtrahend, operator, difference);
+//                showBinaryString(minuend, subtrahend, operator, difference);
                 System.out.println("The difference is: " + difference.toPlainString());
+                break;
+            case "*":
+                System.out.print("Enter the multiplier: ");
+                String multiplier = getString();
+                System.out.print("Enter the multiplicand: ");
+                String multiplicand = getString();
+                BigDecimal product = Calculator.multiplication(multiplier, multiplicand);
+//                showBinaryString(multiplier, multiplicand, operator, product);
+                System.out.println("The difference is: " + product.toPlainString());
                 break;
             default:
                 System.out.println("Invalid operator");
