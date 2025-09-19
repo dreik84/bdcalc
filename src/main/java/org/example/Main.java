@@ -37,7 +37,16 @@ public class Main {
                 String multiplicand = getString();
                 BigDecimal product = Calculator.multiplication(multiplier, multiplicand);
 //                showBinaryString(multiplier, multiplicand, operator, product);
-                System.out.println("The difference is: " + product.toPlainString());
+                System.out.println("The product is: " + product.toPlainString());
+                break;
+            case "/":
+                System.out.print("Enter the dividend: ");
+                String dividend = getString();
+                System.out.print("Enter the divisor: ");
+                String divisor = getString();
+                BigDecimal quotient = Calculator.division(dividend, divisor);
+//                showBinaryString(dividend, divisor, operator, quotient);
+                System.out.println("The quotient is: " + quotient.toPlainString());
                 break;
             default:
                 System.out.println("Invalid operator");
