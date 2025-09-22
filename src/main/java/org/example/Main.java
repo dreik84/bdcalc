@@ -18,7 +18,7 @@ public class Main {
                 System.out.print("Enter the addend: ");
                 String addend = getString();
                 BigDecimal sum = Calculator.addition(augend, addend);
-//                showBinaryString(augend, addend, operator, sum);
+                showBinaryString(augend, addend, operator, sum);
                 System.out.println("The sum is: " + sum.toPlainString());
                 break;
             case "-":
@@ -27,7 +27,7 @@ public class Main {
                 System.out.print("Enter the subtrahend: ");
                 String subtrahend = getString();
                 BigDecimal difference = Calculator.subtraction(minuend, subtrahend);
-//                showBinaryString(minuend, subtrahend, operator, difference);
+                showBinaryString(minuend, subtrahend, operator, difference);
                 System.out.println("The difference is: " + difference.toPlainString());
                 break;
             case "*":
@@ -36,7 +36,7 @@ public class Main {
                 System.out.print("Enter the multiplicand: ");
                 String multiplicand = getString();
                 BigDecimal product = Calculator.multiplication(multiplier, multiplicand);
-//                showBinaryString(multiplier, multiplicand, operator, product);
+                showBinaryString(multiplier, multiplicand, operator, product);
                 System.out.println("The product is: " + product.toPlainString());
                 break;
             case "/":
@@ -45,7 +45,7 @@ public class Main {
                 System.out.print("Enter the divisor: ");
                 String divisor = getString();
                 BigDecimal quotient = Calculator.division(dividend, divisor);
-//                showBinaryString(dividend, divisor, operator, quotient);
+                showBinaryString(dividend, divisor, operator, quotient);
                 System.out.println("The quotient is: " + quotient.toPlainString());
                 break;
             default:
