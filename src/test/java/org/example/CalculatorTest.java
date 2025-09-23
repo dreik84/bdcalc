@@ -68,4 +68,20 @@ class CalculatorTest {
         Exception ex = assertThrows(ArithmeticException.class, () -> Calculator.division("3", zero));
         assertEquals("Деление на ноль не определено", ex.getMessage());
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1, 1, 1",
+            "2, -1, 0.5",
+            "3, 4, 81",
+            "-2, 3, -8",
+            "5, 0, 1",
+            "2, 10, 1024"
+    })
+    void testExponentiation(String base, String exponent, String power) {
+        BigDecimal expected = new BigDecimal(power);
+        BigDecimal actual = Calculator.exponentiation(base, exponent);
+
+        assertEquals(expected, actual);
+    }
 }
