@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        System.out.print("Enter the operator ( + - * / ): ");
+        System.out.print("Enter the operator ( + - * / ^ ): ");
         String operator = getString();
 
         switch (operator) {
@@ -47,6 +47,15 @@ public class Main {
                 BigDecimal quotient = Calculator.division(dividend, divisor);
                 showBinaryString(dividend, divisor, operator, quotient);
                 System.out.println("The quotient is: " + quotient.toPlainString());
+                break;
+            case "^":
+                System.out.print("Enter the base: ");
+                String base = getString();
+                System.out.print("Enter the exponent: ");
+                String exponent = getString();
+                BigDecimal power = Calculator.exponentiation(base, exponent);
+                showBinaryString(base, exponent, operator, power);
+                System.out.println("The power is: " + power.toPlainString());
                 break;
             default:
                 System.out.println("Invalid operator");
