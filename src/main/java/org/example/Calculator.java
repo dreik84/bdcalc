@@ -39,4 +39,11 @@ public class Calculator {
 
         return term1.divide(term2, MC);
     }
+
+    public static BigDecimal exponentiation(String base, String exponent) {
+        BigDecimal term1 = new BigDecimal(base, MC);
+        BigDecimal term2 = new BigDecimal(exponent, MC);
+
+        return term1.pow(term2.intValue(), MC);
+    }
 }
