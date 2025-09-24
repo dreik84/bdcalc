@@ -40,6 +40,16 @@ public class Calculator {
         return term1.divide(term2, MC);
     }
 
+    public static BigDecimal remainderOfDivision(String dividend, String divisor) {
+        BigDecimal term1 = new BigDecimal(dividend, MC);
+        BigDecimal term2 = new BigDecimal(divisor, MC);
+
+        if (term2.compareTo(new BigDecimal("0", MC)) == 0)
+            throw new ArithmeticException("Деление на ноль не определено");
+
+        return term1.remainder(term2, MC);
+    }
+
     public static BigDecimal exponentiation(String base, String exponent) {
         BigDecimal term1 = new BigDecimal(base, MC);
         BigDecimal term2 = new BigDecimal(exponent, MC);
