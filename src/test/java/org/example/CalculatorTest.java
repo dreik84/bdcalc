@@ -70,6 +70,22 @@ class CalculatorTest {
     }
 
     @ParameterizedTest
+    @ArgumentsSource(TestRemainderOfDivisionArgumentsProvider.class)
+    void testRemainderOfDivision(String dividend, String divisor, String remainder) {
+        BigDecimal expected = new BigDecimal(remainder);
+        BigDecimal actual = Calculator.remainderOfDivision(dividend, divisor);
+
+        assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"0", "0.0", "0.00"})
+    void testRemainderOfDivisionByZero(String zero) {
+        Exception ex = assertThrows(ArithmeticException.class, () -> Calculator.remainderOfDivision("3", zero));
+        assertEquals("Деление на ноль не определено", ex.getMessage());
+    }
+
+    @ParameterizedTest
     @CsvSource({
             "1, 1, 1",
             "2, -1, 0.5",
