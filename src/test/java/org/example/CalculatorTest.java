@@ -1,5 +1,6 @@
 package org.example;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 
@@ -99,5 +100,21 @@ class CalculatorTest {
         BigDecimal actual = Calculator.exponentiation(base, exponent);
 
         assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/root.csv", numLinesToSkip = 0)
+    void testRootExtraction(String radicand, String root) {
+        BigDecimal expected = new BigDecimal(root);
+        BigDecimal actual = Calculator.rootExtraction(radicand);
+
+        assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-1", "-2", "-3.2"})
+    void testRootExtractionOfNegative(String negative) {
+        Exception ex = assertThrows(ArithmeticException.class, () -> Calculator.rootExtraction(negative));
+        assertEquals("Квадратный корень отрицательного числа не определен", ex.getMessage());
     }
 }
