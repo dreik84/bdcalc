@@ -66,6 +66,14 @@ public class Main {
                 showBinaryString(base, exponent, operator, power);
                 System.out.println("The power is: " + power.toPlainString());
                 break;
+            case "root":
+                System.out.print("Enter the radicand: ");
+                String radicand = getString();
+                String degree = "2";
+                BigDecimal root = Calculator.rootExtraction(radicand);
+                showBinaryString(radicand, degree, operator, root);
+                System.out.println("The root is: " + root.toPlainString());
+                break;
             default:
                 System.out.println("Invalid operator");
         }
