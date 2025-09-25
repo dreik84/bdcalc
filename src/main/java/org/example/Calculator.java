@@ -56,4 +56,13 @@ public class Calculator {
 
         return term1.pow(term2.intValue(), MC);
     }
+
+    public static BigDecimal rootExtraction(String radicand) {
+        BigDecimal term = new BigDecimal(radicand, MC);
+
+        if (term.compareTo(new BigDecimal("0", MC)) < 0)
+            throw new ArithmeticException("Квадратный корень отрицательного числа не определен");
+
+        return term.sqrt(MC);
+    }
 }
