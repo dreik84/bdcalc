@@ -9,60 +9,60 @@ public class Calculator {
     public static final MathContext MC = new MathContext(10);
     public static final RoundingMode RM = RoundingMode.HALF_UP;
 
-    public static BigDecimal addition(String augend, String addend) {
-        BigDecimal term1 = new BigDecimal(augend, MC);
-        BigDecimal term2 = new BigDecimal(addend, MC);
+    public static BigDecimal addition(String _augend, String _addend) {
+        BigDecimal augend = new BigDecimal(_augend, MC);
+        BigDecimal addend = new BigDecimal(_addend, MC);
 
-        return term1.add(term2, MC);
+        return augend.add(addend, MC);
     }
 
-    public static BigDecimal subtraction(String minuend, String subtrahend) {
-        BigDecimal term1 = new BigDecimal(minuend, MC);
-        BigDecimal term2 = new BigDecimal(subtrahend, MC);
+    public static BigDecimal subtraction(String _minuend, String _subtrahend) {
+        BigDecimal minuend = new BigDecimal(_minuend, MC);
+        BigDecimal subtrahend = new BigDecimal(_subtrahend, MC);
 
-        return term1.subtract(term2, MC);
+        return minuend.subtract(subtrahend, MC);
     }
 
-    public static BigDecimal multiplication(String multiplier, String multiplicand) {
-        BigDecimal term1 = new BigDecimal(multiplier, MC);
-        BigDecimal term2 = new BigDecimal(multiplicand, MC);
+    public static BigDecimal multiplication(String _multiplier, String _multiplicand) {
+        BigDecimal multiplier = new BigDecimal(_multiplier, MC);
+        BigDecimal multiplicand = new BigDecimal(_multiplicand, MC);
 
-        return term1.multiply(term2, MC);
+        return multiplier.multiply(multiplicand, MC);
     }
 
-    public static BigDecimal division(String dividend, String divisor) {
-        BigDecimal term1 = new BigDecimal(dividend, MC);
-        BigDecimal term2 = new BigDecimal(divisor, MC);
+    public static BigDecimal division(String _dividend, String _divisor) {
+        BigDecimal dividend = new BigDecimal(_dividend, MC);
+        BigDecimal divisor = new BigDecimal(_divisor, MC);
 
-        if (term2.compareTo(new BigDecimal("0", MC)) == 0)
+        if (divisor.compareTo(new BigDecimal("0", MC)) == 0)
             throw new ArithmeticException("Деление на ноль не определено");
 
-        return term1.divide(term2, MC);
+        return dividend.divide(divisor, MC);
     }
 
-    public static BigDecimal remainderOfDivision(String dividend, String divisor) {
-        BigDecimal term1 = new BigDecimal(dividend, MC);
-        BigDecimal term2 = new BigDecimal(divisor, MC);
+    public static BigDecimal remainderOfDivision(String _dividend, String _divisor) {
+        BigDecimal dividend = new BigDecimal(_dividend, MC);
+        BigDecimal divisor = new BigDecimal(_divisor, MC);
 
-        if (term2.compareTo(new BigDecimal("0", MC)) == 0)
+        if (divisor.compareTo(new BigDecimal("0", MC)) == 0)
             throw new ArithmeticException("Деление на ноль не определено");
 
-        return term1.remainder(term2, MC);
+        return dividend.remainder(divisor, MC);
     }
 
-    public static BigDecimal exponentiation(String base, String exponent) {
-        BigDecimal term1 = new BigDecimal(base, MC);
-        BigDecimal term2 = new BigDecimal(exponent, MC);
+    public static BigDecimal exponentiation(String _base, String _exponent) {
+        BigDecimal base = new BigDecimal(_base, MC);
+        BigDecimal exponent = new BigDecimal(_exponent, MC);
 
-        return term1.pow(term2.intValue(), MC);
+        return base.pow(exponent.intValue(), MC);
     }
 
-    public static BigDecimal rootExtraction(String radicand) {
-        BigDecimal term = new BigDecimal(radicand, MC);
+    public static BigDecimal rootExtraction(String _radicand) {
+        BigDecimal radicand = new BigDecimal(_radicand, MC);
 
-        if (term.compareTo(new BigDecimal("0", MC)) < 0)
+        if (radicand.compareTo(new BigDecimal("0", MC)) < 0)
             throw new ArithmeticException("Квадратный корень отрицательного числа не определен");
 
-        return term.sqrt(MC);
+        return radicand.sqrt(MC);
     }
 }
